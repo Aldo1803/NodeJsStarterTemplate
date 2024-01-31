@@ -4,7 +4,8 @@ import morgan from 'morgan';
 import mongoose from 'mongoose';
 import multer from 'multer';
 import dotenv from 'dotenv';
-import route from './Routes/index.js';
+import route from './routes/user.js';
+
 
 dotenv.config();
 
@@ -51,8 +52,7 @@ app.use((err, req, res, next) => {
 const connectDB = async () => {
     try {
         await mongoose.connect(process.env.DEV_DB_URL || 'mongodb://localhost:27017/myapp', {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
+           
         });
         console.log("MongoDB Connection Succeeded.");
     } catch (err) {
